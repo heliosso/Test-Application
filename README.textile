@@ -1,0 +1,20 @@
+h1. Little Job Application Challenge
+
+h2. Please follow these steps
+
+# Fork this repository (if you don’t know how to do that, google is your friend)
+# Create an easy Tasks-Lists tool using Ruby on Rails that accomplishes the following:
+** a User has many Task-Lists
+** a Task-List has many tasks
+** a Task has a title and description
+** a Task can have a due date
+** a Task can be checked as "done"
+# Polish your code as much as possible, use Rails with its possibilities
+# You can earn extra credits. Examples:
+** Deployment on heroku.com
+** Tasks created by incomming E-Mail
+** Share a Task-List using special/secret URL
+** Webhook for finished tasks
+** ...?!
+# Commit and Push your code to your new repository
+# Send us a pull request, we will review your code and get back to you
