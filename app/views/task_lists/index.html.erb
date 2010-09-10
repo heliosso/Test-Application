@@ -1,0 +1,20 @@
+<h1>Task Lists Assigned to <%= @user.name%></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+
+<% @task_lists.each do |task_list| %>
+  <tr>
+    <td><%=h task_list.name %></td>
+    <td><%= link_to 'Edit', edit_user_task_list_path(task_list.user, task_list) %></td>
+    <td><%= link_to 'Destroy', user_task_list_path(task_list.user, task_list), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New task_list', new_user_task_list_path(@user) %>

@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @task_list.name %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @task_list.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_list_path(@task_list) %> |
+<%= link_to 'Back', task_lists_path %>
