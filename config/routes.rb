@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.user_task_list '/user_tasks/list/user/:user_id/task_list/:task_list', :controller => "user_tasks", :action => "list"
   
-  map.resources :tasks
+  #map.resources :tasks
 
   map.resources :users
 

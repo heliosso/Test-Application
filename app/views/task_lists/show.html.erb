@@ -12,6 +12,7 @@
           <td>Title</td>
 		  <td>Description</td>
 		  <td>Created on</td>
+		  <td>Due Date</td>
           <td width="10%">&nbsp;</td>
         </tr>
       </thead>
@@ -21,9 +22,10 @@
             <td><%= link_to task.title, task_list_task_path(:task_list_id => @task_list.id, :id => task.id) %></td>
 		    <td><%= task.description %></td>
 			<td><%= datetime_in_words(task.created_at) %></td>
+			<td><%= datetime_in_words(task.due_date) %></td>
             <td width="10%">
               <%= link_to image_tag("edit.png", :alt=> "Edit user", :width=>"22", :height=>"16", :border=>"0", :title=>"edit user"), edit_task_list_task_path(:task_list_id => @task_list.id, :id => task.id)%> | 
-              <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete task list" />', task, :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
+              <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete task list" />', task_list_task_path(:task_list_id => @task_list.id, :id => task.id), :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
             </td>
           </tr>
 	    <% end %>

@@ -11,3 +11,10 @@
     <%= form.text_field :description, :tabindex => "2" %>
   </span>
 </p>
+
+<p>
+  <span class="field_left"><%= form.label :due_date, "Due Date" %></span>
+  <span class="field_right">
+    <%= form.date_select :due_date, :prompt => true, :tabindex => "2" %>
+  </span>
+</p>

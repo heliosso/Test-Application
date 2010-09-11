@@ -1,4 +1,6 @@
 class Task < ActiveRecord::Base
+  validates_presence_of :title, :due_date
+  
   belongs_to :task_list
   has_many :user_tasks, :dependent => :destroy
   has_many :users, :through => :user_tasks
