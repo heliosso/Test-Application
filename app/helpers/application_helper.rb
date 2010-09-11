@@ -31,12 +31,12 @@ module ApplicationHelper
     completed_on = user_task.present? ? (user_task.completed_on.present? ? user_task.completed_on : nil) : nil
     if completed_on && due_date == completed_on
      comments = "Completed on time"
-    elsif completed_on && due_date < completed_on
-     comments =  "Task completed before due date"
     elsif completed_on && due_date > completed_on
+     comments =  "Task completed before due date"
+    elsif completed_on && due_date < completed_on
      comments = "Task is completed after due date"
     elsif completed_on.nil? && due_date == Date.today
-      "Today is the last day of due date to complete the task"
+      comments = "Today is the last day of due date to complete the task"
     elsif completed_on.nil? && due_date > Date.today
      comments = "Task to be completed on '#{datetime_in_words(due_date)}'"
     elsif completed_on.nil? && due_date < Date.today
