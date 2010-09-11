@@ -1,15 +1,12 @@
 <h1>Editing task_list</h1>
 
-<% form_for :task_list, :url => user_task_list_path(@task_list.user, @task_list), :html => {:method => :put} do |f| %>
+<% form_for(@task_list) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
+  <%= render :partial => f %>
   <p>
     <%= f.submit 'Update' %>
   </p>
 <% end %>
 
-<%= link_to 'Back', user_task_lists_path(@task_list.user) %>
+<%= link_to 'Show', @task_list %> |
+<%= link_to 'Back', task_lists_path %>

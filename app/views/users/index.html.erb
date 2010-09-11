@@ -1,20 +1,29 @@
-<h1>Listing users</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-  </tr>
-
-<% @users.each do |user| %>
-  <tr>
-    <td><%=h user.name %></td>
-    <td><%= link_to 'Task Lists', user_task_lists_path(user) %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<div class="tableBox">
+  <div class="titleHeader">
+    <div class="left"></div>
+    <div class="middle"><h3 class="table_title"><em>Users</em></h3></div>
+    <div class="right"></div>
+  </div>
+  <div class="bottom">
+    <table class="tableList" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Name</td>
+		  <td>Created on</td>
+          <td width="10%">&nbsp;</td>
+        </tr>
+      </thead>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= link_to user.name, user %></td>
+		  <td><%= datetime_in_words(user.created_at) %></td>
+          <td width="10%">
+			  <a href="/users/<%= user.id.to_i %>/edit"><img alt="Edit user" src="/images/edit.png" width="22" height="16" border="0" title="edit user" /></a> | 
+              <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete user" />', user, :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
+          </td>
+        </tr>
+	  <% end %>
+    </table>
+  </div>
+</div>
 <%= link_to 'New user', new_user_path %>

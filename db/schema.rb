@@ -9,11 +9,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100910100538) do
+ActiveRecord::Schema.define(:version => 20100911015123) do
+
+  create_table "task_list_managements", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "task_list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "task_lists", :force => true do |t|
     t.string   "name"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tasks", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.integer  "task_list_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "user_tasks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.integer  "status",     :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

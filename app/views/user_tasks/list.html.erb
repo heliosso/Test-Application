@@ -11,20 +11,21 @@
         <tr>
           <td>Title</td>
 		  <td>Description</td>
-		  <td>Created on</td>
-          <td width="10%">&nbsp;</td>
+		  <td>Status</td>
         </tr>
       </thead>
-      <% if @tasks and @tasks.length != 0 %>
+      <% if @tasks and @tasks.size != 0 %>
 	    <% @tasks.each do |task| %>
           <tr>
             <td><%= link_to task.title, task_list_task_path(:task_list_id => @task_list.id, :id => task.id) %></td>
 		    <td><%= task.description %></td>
-			<td><%= datetime_in_words(task.created_at) %></td>
-            <td width="10%">
-              <%= link_to image_tag("edit.png", :alt=> "Edit user", :width=>"22", :height=>"16", :border=>"0", :title=>"edit user"), edit_task_list_task_path(:task_list_id => @task_list.id, :id => task.id)%> | 
-              <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete task list" />', task, :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
-            </td>
+			<td>
+			  <% if task_status?(@user.id,task.id) %>
+			    Done
+			  <% else %>
+			    <input class="check" type="checkbox" id="<%= task.id %>" value="<%= task.id %>" onclick="javascript:taskCompleted('<%= @user.id %>','<%= task.id %>','<%= @task_list.id %>')" />
+			  <% end %>
+			</td>
           </tr>
 	    <% end %>
 	  <% else %>
@@ -33,4 +34,3 @@
     </table>
   </div>
 </div>
-<a href="/task_lists/<%= @task_list.id.to_i %>/tasks/new">Add New Task</a>

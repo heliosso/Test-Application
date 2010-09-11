@@ -1,20 +1,30 @@
-<h1>Task Lists Assigned to <%= @user.name%></h1>
+<div class="tableBox">
+  <div class="titleHeader">
+    <div class="left"></div>
+    <div class="middle"><h3 class="table_title"><em>Task Lists</em></h3></div>
+    <div class="right"></div>
+  </div>
+  <div class="bottom">
+    <table class="tableList" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Name</td>
+		  <td>Created on</td>
+          <td width="10%">&nbsp;</td>
+        </tr>
+      </thead>
+      <% @task_lists.each do |task_list| %>
+        <tr>
+          <td><%= link_to task_list.name, task_list %></td>
+		  <td><%= datetime_in_words(task_list.created_at) %></td>
+          <td width="10%">
+			  <%= link_to image_tag("edit.png", :alt=> "Edit user", :width=>"22", :height=>"16", :border=>"0", :title=>"edit user"), edit_task_list_path(task_list)%> | 
+              <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete task list" />', task_list, :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
+          </td>
+        </tr>
+	  <% end %>
+    </table>
+  </div>
+</div>
+<%= link_to 'New Task List', new_task_list_path %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-  </tr>
-
-<% @task_lists.each do |task_list| %>
-  <tr>
-    <td><%=h task_list.name %></td>
-    <td><%= link_to 'Edit', edit_user_task_list_path(task_list.user, task_list) %></td>
-    <td><%= link_to 'Destroy', user_task_list_path(task_list.user, task_list), :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New task_list', new_user_task_list_path(@user) %>

@@ -2,11 +2,7 @@
 
 <% form_for(@user) do |f| %>
   <%= f.error_messages %>
-
-  <p>
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </p>
+  <%= render :partial => f %>
   <p>
     <%= f.submit 'Update' %>
   </p>
