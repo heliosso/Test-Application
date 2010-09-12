@@ -1,0 +1,16 @@
+<h1>Editing task_list</h1>
+
+<% form_for(@task_list) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @task_list %> |
+<%= link_to 'Back', task_lists_path %>

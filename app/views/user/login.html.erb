@@ -1,0 +1,9 @@
+<% form_for :user do |f| %>
+    <%= f.error_messages %>
+    <%= f.label :username, 'User name' %>:
+    <%= f.text_field :username %><br /><br />
+    <%= f.label :password, 'Password' %>:
+    <%= f.password_field :password %><br /><br />
+    <%= submit_tag 'Login' %>
+<% end %>
+<%= link_to "New user?", "/user" %>

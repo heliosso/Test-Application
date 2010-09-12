@@ -1,0 +1,26 @@
+<h1>Listing tasks under Task List <i><%=h @task_list.title %></i></h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Due date</th>
+    <th>Done</th>
+  </tr>
+
+<% @tasks.each do |task| %>
+  <tr>
+    <td><%=h task.title %></td>
+    <td><%=h task.description %></td>
+    <td><%=h task.due_date %></td>
+    <td><%=h task.status %></td>
+    <td><%= link_to 'Show', task_list_task_path(@task_list, task) %></td>
+    <td><%= link_to 'Edit', edit_task_list_task_path(@task_list, task) %></td>
+    <td><%= link_to 'Destroy', task_list_task_path(@task_list, task), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New task', new_task_list_task_path %>

@@ -1,0 +1,28 @@
+<h1>Editing task</h1>
+
+<% form_for(@task, :url => task_list_task_path(@task_list, @task)) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :due_date %><br />
+    <%= f.date_select :due_date %>
+  </p>
+  <p>
+    <%= f.label :status, "Done" %><br />
+    <%= f.check_box :status %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', task_list_task_path(@task_list, @task) %> |
+<%= link_to 'Back', task_list_tasks_path %>
