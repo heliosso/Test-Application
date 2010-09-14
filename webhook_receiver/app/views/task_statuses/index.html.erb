@@ -1,0 +1,26 @@
+<h1>Listing task_statuses</h1>
+
+<table>
+  <tr>
+    <th>Task list</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+
+<% @task_statuses.each do |task_status| %>
+  <tr>
+    <td><%=h task_status.task_list %></td>
+    <td><%=h task_status.title %></td>
+    <td><%=h task_status.description %></td>
+    <td><%=h task_status.status %></td>
+    <td><%= link_to 'Show', task_status %></td>
+    <td><%= link_to 'Edit', edit_task_status_path(task_status) %></td>
+    <td><%= link_to 'Destroy', task_status, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New task_status', new_task_status_path %>

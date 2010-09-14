@@ -1,0 +1,227 @@
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:28:55) [GET]
+  [4;36;1mTask Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: tasks: SELECT * FROM "tasks" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: tasks: SELECT * FROM "tasks" ):
+  app/controllers/tasks_controller.rb:5:in `index'
+
+Rendered rescues/_trace (43.0ms)
+Rendered rescues/_request_and_response (1.4ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("schema_migrations")[0m
+  [4;36;1mSQL (2.3ms)[0m   [0;1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateTasks (20100914154945)
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTasks (20100914154945)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mCREATE TABLE "tasks" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task_list" varchar(255), "title" varchar(255), "description" varchar(255), "status" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100914154945')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("tasks")[0m
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:30:11) [GET]
+  [4;36;1mTask Load (0.4ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+Completed in 25ms (View: 20, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HooksController#hello (for 127.0.0.1 at 2010-09-14 21:30:21) [POST]
+  Parameters: {"task_list"=>"ruby", "task_description"=>"", "status"=>"completed", "task_title"=>"arrays"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (35.2ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:30:24) [GET]
+  [4;35;1mTask Load (0.3ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:30:26) [GET]
+  [4;36;1mTask Load (0.3ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+Completed in 7ms (View: 1, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HooksController#hello (for 127.0.0.1 at 2010-09-14 21:32:17) [POST]
+  Parameters: {"task_list"=>"ruby", "task_description"=>"", "status"=>"completed", "task_title"=>"arrays"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (36.8ms)
+Rendered rescues/_request_and_response (1.5ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:32:21) [GET]
+  [4;36;1mTask Load (0.7ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+Completed in 19ms (View: 13, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:32:58) [GET]
+  [4;36;1mTask Load (0.4ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HooksController#hello (for 127.0.0.1 at 2010-09-14 21:33:25) [POST]
+  Parameters: {"task_list"=>"ruby", "task_description"=>"", "status"=>"completed", "task_title"=>"arrays"}
+
+ActionController::InvalidAuthenticityToken (ActionController::InvalidAuthenticityToken):
+  
+
+Rendered rescues/_trace (35.4ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (unprocessable_entity)
+
+
+Processing HooksController#task (for 127.0.0.1 at 2010-09-14 21:34:20) [POST]
+  Parameters: {"task_list"=>"ruby", "task_description"=>"", "status"=>"completed", "task_title"=>"arrays"}
+
+NameError (undefined local variable or method `parmas' for #<HooksController:0x10224a5d8>):
+  app/controllers/hooks_controller.rb:8:in `task'
+
+Rendered rescues/_trace (35.1ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:34:24) [GET]
+  [4;36;1mTask Load (0.4ms)[0m   [0;1mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+Completed in 18ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HooksController#task (for 127.0.0.1 at 2010-09-14 21:35:31) [POST]
+  Parameters: {"task_list"=>"ruby", "task_description"=>"", "status"=>"completed", "task_title"=>"arrays"}
+  [4;36;1mTask Create (0.5ms)[0m   [0;1mINSERT INTO "tasks" ("created_at", "title", "updated_at", "task_list", "description", "status") VALUES('2010-09-14 16:05:31', 'arrays', '2010-09-14 16:05:31', 'ruby', '', 'completed')[0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/hooks/task]
+
+
+Processing TasksController#index (for 127.0.0.1 at 2010-09-14 21:35:43) [GET]
+  [4;35;1mTask Load (0.7ms)[0m   [0mSELECT * FROM "tasks" [0m
+Rendering template within layouts/tasks
+Rendering tasks/index
+
+ActionView::TemplateError (undefined method `to_sym' for nil:NilClass) on line #17 of app/views/tasks/index.html.erb:
+14:     <td><%=h task.title %></td>
+15:     <td><%=h task.description %></td>
+16:     <td><%=h task.status %></td>
+17:     <td><%= link_to 'Show', task %></td>
+18:     <td><%= link_to 'Edit', edit_task_path(task) %></td>
+19:     <td><%= link_to 'Destroy', task, :confirm => 'Are you sure?', :method => :delete %></td>
+20:   </tr>
+
+    (eval):21:in `task_path'
+    app/views/tasks/index.html.erb:17
+    app/views/tasks/index.html.erb:11:in `each'
+    app/views/tasks/index.html.erb:11
+    app/controllers/tasks_controller.rb:7:in `index'
+
+Rendered rescues/_trace (152.8ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-09-14 21:40:20) [GET]
+
+ActionController::RoutingError (No route matches "/messages" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing TaskStatusesController#index (for 127.0.0.1 at 2010-09-14 21:40:24) [GET]
+  [4;36;1mTaskStatus Load (0.0ms)[0m   [0;1mSQLite3::SQLException: no such table: task_statuses: SELECT * FROM "task_statuses" [0m
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: no such table: task_statuses: SELECT * FROM "task_statuses" ):
+  app/controllers/task_statuses_controller.rb:5:in `index'
+
+Rendered rescues/_trace (41.3ms)
+Rendered rescues/_request_and_response (1.2ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTaskStatuses (20100914160936)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateTaskStatuses (20100914160936)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mCREATE TABLE "task_statuses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "task_list" varchar(255), "title" varchar(255), "description" varchar(255), "status" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20100914160936')[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("task_statuses")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("tasks")[0m
+
+
+Processing TaskStatusesController#index (for 127.0.0.1 at 2010-09-14 21:41:06) [GET]
+  [4;36;1mTaskStatus Load (0.4ms)[0m   [0;1mSELECT * FROM "task_statuses" [0m
+Rendering template within layouts/task_statuses
+Rendering task_statuses/index
+Completed in 19ms (View: 13, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing HooksController#task (for 127.0.0.1 at 2010-09-14 21:41:28) [POST]
+  Parameters: {"task_list"=>"ruby", "task_description"=>"", "status"=>"completed", "task_title"=>"arrays"}
+  [4;35;1mTaskStatus Create (0.4ms)[0m   [0mINSERT INTO "task_statuses" ("created_at", "title", "updated_at", "task_list", "description", "status") VALUES('2010-09-14 16:11:28', 'arrays', '2010-09-14 16:11:28', 'ruby', '', 'completed')[0m
+Completed in 12ms (View: 1, DB: 0) | 200 OK [http://localhost/hooks/task]
+
+
+Processing TaskStatusesController#index (for 127.0.0.1 at 2010-09-14 21:41:33) [GET]
+  [4;36;1mTaskStatus Load (0.5ms)[0m   [0;1mSELECT * FROM "task_statuses" [0m
+Rendering template within layouts/task_statuses
+Rendering task_statuses/index
+Completed in 68ms (View: 63, DB: 0) | 200 OK [http://localhost/]
