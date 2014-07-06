@@ -1,0 +1,38 @@
+<p><b>Task List: <%= @task_list.name %></b></p>
+<div class="tableBox">
+  <div class="titleHeader">
+    <div class="left"></div>
+    <div class="middle"><h3 class="table_title"><em>Tasks</em></h3></div>
+    <div class="right"></div>
+  </div>
+  <div class="bottom">
+    <table class="tableList" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Title</td>
+		  <td>Description</td>
+		  <td>Created on</td>
+		  <td>Due Date</td>
+          <td width="10%">&nbsp;</td>
+        </tr>
+      </thead>
+      <% if @tasks and @tasks.length != 0 %>
+	    <% @tasks.each do |task| %>
+          <tr>
+            <td><%= link_to task.title, task_list_task_path(:task_list_id => @task_list.id, :id => task.id) %></td>
+		    <td><%= task.description %></td>
+			<td><%= datetime_in_words(task.created_at) %></td>
+			<td><%= datetime_in_words(task.due_date) %></td>
+            <td width="10%">
+              <%= link_to image_tag("edit.png", :alt=> "Edit user", :width=>"22", :height=>"16", :border=>"0", :title=>"edit user"), edit_task_list_task_path(:task_list_id => @task_list.id, :id => task.id)%> | 
+              <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete task list" />', task_list_task_path(:task_list_id => @task_list.id, :id => task.id), :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
+            </td>
+          </tr>
+	    <% end %>
+	  <% else %>
+	    <tr><td>No Tasks</td></tr>
+	  <% end %>
+    </table>
+  </div>
+</div>
+<a href="/task_lists/<%= @task_list.id.to_i %>/tasks/new">Add New Task</a>

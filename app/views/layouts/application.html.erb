@@ -1,18 +1,24 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-  <title><%= yield(:title) || APPNAME</title>
-  <%= javascript_include_tag :defaults %>
-  <%= stylesheet_link_tag 'reset' %>
-  <%= stylesheet_link_tag 'text' %>
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <title>TestApp: <%= @page_title %></title>
   <%= stylesheet_link_tag 'application' %>
-  <%= yield(:head) %>
+  <%= javascript_include_tag :defaults %>
 </head>
-<body>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, :class => name %>
-  <% end %>
-  <%= yield %>
+<body id="body">
+  <div class="outer-div">
+    <div id="top-bar">
+  	  <div class="head-title" onclick="window.location='/'" style="cursor:pointer;">
+  		Task Management
+	  </div>	
+    </div>
+    <div id="main-content">
+      <div><%= link_to "Users", root_path%> | <%= link_to "Task List", task_lists_path%></div>
+	  <p style="color: green"><%= flash[:notice] %></p>
+	  <%= yield %>
+    </div>
+  </div>
 </body>
 </html>

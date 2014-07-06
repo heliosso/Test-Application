@@ -1,0 +1,85 @@
+<div class="tableBox" style="width:30%;">
+  <div class="titleHeader">
+    <div class="left"></div>
+    <div class="middle"><h3 class="table_title"><em>User Profile</em></h3></div>
+    <div class="right"></div>
+  </div>
+  <div class="bottom">
+    <table class="tableList" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Name</td>
+		  <td width="27%">&nbsp;</td>
+        </tr>
+      </thead>
+        <tr>
+          <td><%= link_to @user.name, @user %></td>
+		  <td width="10%">
+			  <%= link_to image_tag("edit.png", :alt=> "Edit user", :width=>"22", :height=>"16", :border=>"0", :title=>"edit user"), edit_user_path(@user)%> | 
+               <%= link_to '<img src="/images/delete.png" width="15" height="15" alt="Delete lead" border="0"  title="delete user" />', @user, :confirm => 'Are you sure?', :method => :delete, :class => 'padding_left08' %>
+          </td>
+        </tr>
+    </table>
+  </div>
+</div>
+
+<div class="tableBox" style="width:30%;">
+  <div class="titleHeader">
+    <div class="left"></div>
+    <div class="middle"><h3 class="table_title"><em>Assigned Tasks List</em></h3></div>
+    <div class="right"></div>
+  </div>
+  <div class="bottom">
+    <table class="tableList" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Name</td>
+		  <td width="10%">&nbsp;</td>
+        </tr>
+      </thead>
+	  <% if @assigned_task_list and @assigned_task_list.size != 0 %>
+        <% @assigned_task_list.each do |assigned_task_list|%>
+		  <tr>
+            <td><%= link_to assigned_task_list.name, user_task_list_path(:user_id => @user.id, :task_list => assigned_task_list.id)%></td>
+		    <td width="10%"></td>
+          </tr>
+		<% end %>
+	  <% else %>
+	    <tr><td> No Tasks </td></tr>	
+      <% end %>
+	</table>
+  </div>
+</div>
+
+
+<div class="tableBox" style="width:30%;">
+  <div class="titleHeader">
+    <div class="left"></div>
+    <div class="middle"><h3 class="table_title"><em>Unssigned Tasks List</em></h3></div>
+    <div class="right"></div>
+  </div>
+  <div class="bottom">
+    <table class="tableList" cellpadding="0" cellspacing="0">
+      <thead>
+        <tr>
+          <td>Name</td>
+		  <td width="10%">&nbsp;</td>
+        </tr>
+      </thead>
+	  <% if @unassigned_task_list and @unassigned_task_list.size != 0 %>
+        <% @unassigned_task_list.each do |unassigned_task_list|%>
+		  <tr>
+            <td><%= unassigned_task_list.name %></td>
+		    <td width="10%"><input class="check" type="checkbox" id="<%= unassigned_task_list.id %>" value="<%= unassigned_task_list.id %>" /></td>
+          </tr>
+		<% end %>
+      <% end %>
+	</table>
+  </div>
+  <input type="button" name="Submit" value="Assign Task List To <%= @user.name%>" onclick="javascript:assignTaskLists('<%= @user.id %>');" />
+</div>
+
+<br /><br /><br />
+
+<br clear="all" />
+

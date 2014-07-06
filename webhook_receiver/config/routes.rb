@@ -1,20 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
-  
-  
-  
-  map.connect '/assign_task_list', :controller => "task_lists", :action => "assign_task_list"
-  
-  map.user_task_list '/user_tasks/list/user/:user_id/task_list/:task_list', :controller => "user_tasks", :action => "list"
-  
-  #map.resources :tasks
-
-  map.resources :users
-
-  map.resources :task_lists do |task_list|
-    task_list.resources :tasks
-  end
-
-  map.root :controller => "users", :action => "index"
+  map.resources :task_statuses
+  map.task 'hooks/task', :controller => 'hooks', :action => 'task'
   
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -48,7 +34,7 @@ ActionController::Routing::Routes.draw do |map|
   #   end
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
-  # map.root :controller => "welcome"
+   map.root :controller => "task_statuses"
 
   # See how all your routes lay out with "rake routes"
 
