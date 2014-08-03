@@ -1,0 +1,28 @@
+<p>
+  <b>Task list:</b>
+  <%=h @task_list.title %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%=h @task.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @task.description %>
+</p>
+
+<p>
+  <b>Due date:</b>
+  <%=h @task.due_date %>
+</p>
+
+<p>
+  <b>Done:</b>
+  <%=h @task.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_task_list_task_path(@task_list, @task) %> |
+<%= link_to 'Back', task_list_tasks_path %>
